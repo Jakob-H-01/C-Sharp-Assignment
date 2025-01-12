@@ -9,17 +9,17 @@ public class Menu(IContactService contactService)
 
     public void Main()
     {
-        var run = true;
+        bool run = true;
         while (run)
         {
             Console.Clear();
-            Console.WriteLine("*** MENU ***");
+            Console.WriteLine("***** MENU *****");
             Console.WriteLine("1. Add Contact");
             Console.WriteLine("2. View Contacts");
             Console.WriteLine("3. Quit");
             Console.Write("\nSelect Action: ");
 
-            var action = Console.ReadLine();
+            var action = Console.ReadLine()!;
 
             switch (action)
             {
@@ -43,28 +43,28 @@ public class Menu(IContactService contactService)
         var contact = ContactFactory.Create();
 
         Console.Clear();
-        Console.WriteLine("*** ADD CONTACT ***");
+        Console.WriteLine("***** ADD CONTACT *****");
 
         Console.Write("First Name: ");
-        contact.FirstName = Console.ReadLine();
+        contact.FirstName = Console.ReadLine()!;
 
         Console.Write("Last Name: ");
-        contact.LastName = Console.ReadLine();
+        contact.LastName = Console.ReadLine()!;
 
         Console.Write("Email: ");
-        contact.Email = Console.ReadLine();
+        contact.Email = Console.ReadLine()!;
 
         Console.Write("Phone Number: ");
-        contact.PhoneNumber = Console.ReadLine();
+        contact.PhoneNumber = Console.ReadLine()!;
 
         Console.Write("Street Address: ");
-        contact.StreetAddress = Console.ReadLine();
+        contact.StreetAddress = Console.ReadLine()!;
 
         Console.Write("Zip Code: ");
-        contact.ZipCode = Console.ReadLine();
+        contact.ZipCode = Console.ReadLine()!;
 
         Console.Write("City: ");
-        contact.City = Console.ReadLine();
+        contact.City = Console.ReadLine()!;
 
         var result = _contactService.Add(contact);
 
@@ -85,9 +85,9 @@ public class Menu(IContactService contactService)
         var contacts = _contactService.GetAll();
 
         Console.Clear();
-        Console.WriteLine("*** CONTACTS ***");
+        Console.WriteLine("***** CONTACTS *****");
 
-        var index = 0;
+        int index = 0;
         foreach (var contact in contacts)
         {
             Console.WriteLine($"{index + 1}. {contact.FirstName} {contact.LastName} {contact.Email} {contact.PhoneNumber} {contact.StreetAddress} {contact.ZipCode} {contact.City}");
