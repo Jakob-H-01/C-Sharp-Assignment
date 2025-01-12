@@ -9,7 +9,8 @@ public class Menu(IContactService contactService)
 
     public void Main()
     {
-        while (true)
+        var run = true;
+        while (run)
         {
             Console.Clear();
             Console.WriteLine("*** MENU ***");
@@ -31,6 +32,7 @@ public class Menu(IContactService contactService)
                     break;
                 
                 case "3":
+                    run = false;
                     break;
             }
         }
